@@ -1,12 +1,8 @@
 #include"stdio.h"
-#include"Windows.h"
 
 int main() {
 
-	SetConsoleOutputCP(65001);
-	char str[] = "こんちわ";
-
-	printf("%s",str);
+	printf("今日は暑いね！！");
 
 	return 0;
 }

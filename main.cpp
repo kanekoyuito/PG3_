@@ -4,7 +4,7 @@
 int main() {
 
 	SetConsoleOutputCP(65001);
-	char str[] = "こんちくわ";
+	char str[] = "こんちわ";
 
 	printf("%s",str);
 

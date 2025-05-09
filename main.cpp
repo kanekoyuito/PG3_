@@ -1,26 +1,22 @@
-#include"stdio.h"
+#include <stdio.h>
 
-//①template<typename Type>と書いてテンプレートを定義
-template<typename Type1, typename Type2>
-//②引数を①で宣言・定義したものとする
-Type1 add(Type1 a, Type2 b) {
-	//③戻り値は員数によって変化するので、キャスと(明示的な型変化)を使って整える
-	if (a<b)
-	{
-		return a;
+int Recursive1(int kyuuyo, int time, int kotei) {
+	if (kyuuyo >= kotei) {
+		printf("%d時間後に超える", time);
+		return time;
 	}
-	if (b<a)
-	{
-		return b;
-	}
-}
-template<>
-char add<char>(char a, char b) {
-	return printf("数字以外を入れるな　カス\n");
+	printf("%d　%d\n", kyuuyo, kotei);
+	kyuuyo = kyuuyo * 2 - 50;
+
+	return (Recursive1(kyuuyo, ++time, kotei += 1072));
 }
 
 int main() {
-	printf("%d\n", add<int, float>(114, 51.4f));
-	printf("%d\n", add<char, char>(110,100));
-	printf("%d\n", add<double, double>(100, 100));
+
+	int saiki = 100;
+	int ippan = 1072;
+	int zikan = 0;
+	int resullt1 = Recursive1(saiki, zikan, ippan);;
+
+	return 0;
 }

@@ -1,25 +1,44 @@
 #include <stdio.h>
-#include "IShape.h"
-#include "Circle.h"
-#include "Rectangle.h"
+#include <list>
+#include <iostream>
+#include <string.h>
+
+using namespace std;
 
 int main(void) {
+  
+    list <const char*> eki_list{
+        "Tokyo", "Kanda", "Akihabara", "Okachimachi", "Ueno", "Uguisudani", "Nippori", "Tabata", "Komagome", "Sugamo", "Otsuka", "Ikebukuro", "Mejiro", "Takadanobaba", "Sin-Okubo", "Shinjuku", "Yoyogi", "Harajuku", "Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Sinagawa", "Tamachi", "Hamamatsucho", "Shimbashi", "Yurakucho"
+    };
 
-	IShape* shape[2];
+    printf("1970年\n");
+    for (list<const char*>::iterator it_f = eki_list.begin(); it_f != eki_list.end(); it_f++) {
+        std::cout << *it_f << endl;
+    }
 
-	shape[0] = new Circle;
-	shape[1] = new Rectangle;
+   
+    printf("\n2019年\n");
+    for (list<const char*>::iterator it_f = eki_list.begin(); it_f != eki_list.end(); ++it_f) {
+        std::cout << *it_f << endl;
 
-	printf("円の半径:4\n短形の底辺:2\n短形の高さ:3\n");
+        if (strcmp(*it_f, "Nippori") == 0) {
+            ++it_f; 
+            it_f = eki_list.insert(it_f, "Nishi-Nippori");
+            std::cout << *it_f << endl;
+        }
+    }
 
-	for (int i = 0; i < 2; i++)
-		shape[i]->Size();
+ 
+    printf("\n2022年\n");
+    for (list<const char*>::iterator it_f = eki_list.begin(); it_f != eki_list.end(); ++it_f) {
+        std::cout << *it_f << endl;
 
+        if (strcmp(*it_f, "Sinagawa") == 0) {
+            ++it_f; 
+            it_f = eki_list.insert(it_f, "Takanawa Gateway");
+            std::cout << *it_f << endl;
+        }
+    }
 
-	printf("\n");
-
-	for (int i = 0; i < 2; i++)
-		shape[i]->Draw();
-
-	return 0;
+    return 0;
 }

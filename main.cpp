@@ -1,44 +1,24 @@
 #include <stdio.h>
-#include <list>
+#include <algorithm>
+#include <vector>
 #include <iostream>
-#include <string.h>
 
 using namespace std;
 
 int main(void) {
-  
-    list <const char*> eki_list{
-        "Tokyo", "Kanda", "Akihabara", "Okachimachi", "Ueno", "Uguisudani", "Nippori", "Tabata", "Komagome", "Sugamo", "Otsuka", "Ikebukuro", "Mejiro", "Takadanobaba", "Sin-Okubo", "Shinjuku", "Yoyogi", "Harajuku", "Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Sinagawa", "Tamachi", "Hamamatsucho", "Shimbashi", "Yurakucho"
-    };
 
-    printf("1970年\n");
-    for (list<const char*>::iterator it_f = eki_list.begin(); it_f != eki_list.end(); it_f++) {
-        std::cout << *it_f << endl;
-    }
+	vector<string> IDNum = {
+		// ...（略：IDのリストはそのままでOK）...
+		"k022g0001@g.neec.ac.jp"
+	};
 
-   
-    printf("\n2019年\n");
-    for (list<const char*>::iterator it_f = eki_list.begin(); it_f != eki_list.end(); ++it_f) {
-        std::cout << *it_f << endl;
+	// ソート関数を正しく記述
+	sort(IDNum.begin(), IDNum.end());
 
-        if (strcmp(*it_f, "Nippori") == 0) {
-            ++it_f; 
-            it_f = eki_list.insert(it_f, "Nishi-Nippori");
-            std::cout << *it_f << endl;
-        }
-    }
+	cout << "学籍番号" << endl;
 
- 
-    printf("\n2022年\n");
-    for (list<const char*>::iterator it_f = eki_list.begin(); it_f != eki_list.end(); ++it_f) {
-        std::cout << *it_f << endl;
+	for (int i = 0; i < IDNum.size(); i++)
+		cout << IDNum[i] << endl;
 
-        if (strcmp(*it_f, "Sinagawa") == 0) {
-            ++it_f; 
-            it_f = eki_list.insert(it_f, "Takanawa Gateway");
-            std::cout << *it_f << endl;
-        }
-    }
-
-    return 0;
+	return 0;
 }
